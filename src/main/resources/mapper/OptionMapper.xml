@@ -3,10 +3,10 @@
 <mapper namespace="com.ks.domain.mapper.OptionMapper">
 
     <resultMap id="BaseResultMap" type="com.ks.domain.entity.Option">
-        <id column="id" jdbcType="INTEGER" property="id" />
-        <result column="qid" jdbcType="INTEGER" property="qid" />
-        <result column="text" jdbcType="VARCHAR" property="text" />
-        <result column="answer" jdbcType="INTEGER" property="answer" />
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="qid" jdbcType="INTEGER" property="qid"/>
+        <result column="text" jdbcType="VARCHAR" property="text"/>
+        <result column="answer" jdbcType="INTEGER" property="answer"/>
     </resultMap>
 
 
@@ -90,43 +90,43 @@
 
     <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List" />
-        from  option
+        <include refid="Base_Column_List"/>
+        from option
         where id = #{id,jdbcType=INTEGER}
     </select>
 
 
     <sql id="findPageWithWhere">
-        <where> 1=1
-            <if test="id != null" >
+        <where>1=1
+            <if test="id != null">
                 and id = #{id,jdbcType=INTEGER}
             </if>
-            <if test="qid != null" >
+            <if test="qid != null">
                 and qid = #{qid,jdbcType=INTEGER}
             </if>
-            <if test="text != null and text != ''" >
+            <if test="text != null and text != ''">
                 and text = #{text,jdbcType=VARCHAR}
             </if>
-            <if test="answer != null" >
+            <if test="answer != null">
                 and answer = #{answer,jdbcType=INTEGER}
             </if>
         </where>
     </sql>
 
 
-    <select id="findPageWithResult" parameterType="com.ks.domain.dto.OptionDTO" resultMap="BaseResultMap">
+    <select id="findPageWithResult" parameterType="com.ks.domain.entity.Option" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List" />
-        from  option
-        <include refid="findPageWithWhere" />
+        <include refid="Base_Column_List"/>
+        from option
+        <include refid="findPageWithWhere"/>
         limit #{start},#{pageSize}
     </select>
 
 
-    <select id="findPageWithCount" parameterType="com.ks.domain.dto.OptionDTO" resultType="Integer">
+    <select id="findPageWithCount" parameterType="com.ks.domain.entity.Option" resultType="Integer">
         select count(1)
         from option
-        <include refid="findPageWithWhere" />
+        <include refid="findPageWithWhere"/>
     </select>
 
 </mapper>

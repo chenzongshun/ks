@@ -3,9 +3,9 @@
 <mapper namespace="com.ks.domain.mapper.QuestionMapper">
 
     <resultMap id="BaseResultMap" type="com.ks.domain.entity.Question">
-        <id column="id" jdbcType="INTEGER" property="id" />
-        <result column="text" jdbcType="VARCHAR" property="text" />
-        <result column="type" jdbcType="INTEGER" property="type" />
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="text" jdbcType="VARCHAR" property="text"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
     </resultMap>
 
 
@@ -79,40 +79,40 @@
 
     <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List" />
-        from  question
+        <include refid="Base_Column_List"/>
+        from question
         where id = #{id,jdbcType=INTEGER}
     </select>
 
 
     <sql id="findPageWithWhere">
-        <where> 1=1
-            <if test="id != null" >
+        <where>1=1
+            <if test="id != null">
                 and id = #{id,jdbcType=INTEGER}
             </if>
-            <if test="text != null and text != ''" >
+            <if test="text != null and text != ''">
                 and text = #{text,jdbcType=VARCHAR}
             </if>
-            <if test="type != null" >
+            <if test="type != null">
                 and type = #{type,jdbcType=INTEGER}
             </if>
         </where>
     </sql>
 
 
-    <select id="findPageWithResult" parameterType="com.ks.domain.dto.QuestionDTO" resultMap="BaseResultMap">
+    <select id="findPageWithResult" parameterType="com.ks.domain.entity.Question" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List" />
-        from  question
-        <include refid="findPageWithWhere" />
+        <include refid="Base_Column_List"/>
+        from question
+        <include refid="findPageWithWhere"/>
         limit #{start},#{pageSize}
     </select>
 
 
-    <select id="findPageWithCount" parameterType="com.ks.domain.dto.QuestionDTO" resultType="Integer">
+    <select id="findPageWithCount" parameterType="com.ks.domain.entity.Question" resultType="Integer">
         select count(1)
         from question
-        <include refid="findPageWithWhere" />
+        <include refid="findPageWithWhere"/>
     </select>
 
 </mapper>

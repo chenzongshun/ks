@@ -114,7 +114,7 @@
     </sql>
 
 
-    <select id="findPageWithResult" parameterType="com.ks.domain.dto.RecordDTO" resultMap="BaseResultMap">
+    <select id="findPageWithResult" parameterType="com.ks.domain.entity.Record" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from record
@@ -123,7 +123,7 @@
     </select>
 
 
-    <select id="findPageWithCount" parameterType="com.ks.domain.dto.RecordDTO" resultType="Integer">
+    <select id="findPageWithCount" parameterType="com.ks.domain.entity.Record" resultType="Integer">
         select count(1)
         from record
         <include refid="findPageWithWhere"/>
