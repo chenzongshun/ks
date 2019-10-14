@@ -30,6 +30,16 @@ public class Record {
      */
     private String sid;
 
+    /**
+     * 所属考生
+     */
+    private Personnel personnel;
+
+    /**
+     * 所属题目
+     */
+    private Question question;
+
     public Integer getId() {
         return id;
     }

@@ -1,6 +1,7 @@
 package com.ks.domain.mapper;
 
 import com.ks.domain.entity.Personnel;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 /**
  * 考生表
  */
+@Mapper
 @Repository
 public interface PersonnelMapper {
     int delete(Integer id);

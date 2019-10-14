@@ -1,6 +1,7 @@
 package com.ks.domain.mapper;
 
 import com.ks.domain.entity.Record;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
  * 答题记录
  * @author shun
  */
+@Mapper
 @Repository
 public interface RecordMapper {
     int delete(Integer id);

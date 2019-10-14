@@ -1,6 +1,7 @@
 package com.ks.domain.mapper;
 
 import com.ks.domain.entity.Option;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 /**
  * 选项表
  */
+@Mapper
 @Repository
 public interface OptionMapper {
     int delete(Integer id);

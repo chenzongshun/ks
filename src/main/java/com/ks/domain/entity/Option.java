@@ -2,6 +2,9 @@ package com.ks.domain.entity;
 
 import lombok.Data;
 
+/**
+ * 选项表
+ */
 @Data
 public class Option {
     private Integer id;
@@ -20,6 +23,11 @@ public class Option {
      * 0不正确1正确...
      */
     private Integer answer;
+
+    /**
+     * 所属题目
+     */
+    private Question question;
 
     public Integer getId() {
         return id;
